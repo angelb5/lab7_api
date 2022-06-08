@@ -37,10 +37,6 @@ public class Juego implements Serializable {
     private Plataforma plataforma;
 
     @ManyToOne
-    @JoinColumn(name = "ideditora")
-    private Editora editora;
-
-    @ManyToOne
     @JoinColumn(name = "iddistribuidora")
     private Distribuidora distribuidora;
 
