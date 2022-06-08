@@ -34,7 +34,7 @@ public class DistribuidoraController {
             Optional<Distribuidora> optionalDistribuidora = distribuidoraRepository.findById(id);
             if(optionalDistribuidora.isPresent()){
                 responseJson.put("resultado","exito");
-                responseJson.put("product",optionalDistribuidora.get());
+                responseJson.put("distribuidora",optionalDistribuidora.get());
                 return ResponseEntity.ok(responseJson);
             } else {
                 responseJson.put("resultado","error");
@@ -62,6 +62,7 @@ public class DistribuidoraController {
     }
 
 
+
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<HashMap<String,String>> gestionExcepcion(HttpServletRequest request){
         HashMap<String,String> responseMap = new HashMap<>();
@@ -85,7 +86,7 @@ public class DistribuidoraController {
                 return ResponseEntity.ok(responseMap);
             } else{
                 responseMap.put("estado","error");
-                responseMap.put("msg","El producto a a actualizar no existe");
+                responseMap.put("msg","La distribuidora a actualizar no existe");
                 return ResponseEntity.badRequest().body(responseMap);
             }
         } else {
@@ -108,7 +109,7 @@ public class DistribuidoraController {
                 return ResponseEntity.ok(responseMap);
             } else{
                 responseMap.put("estado","error");
-                responseMap.put("msg","no se encontró el producto con id: " + id);
+                responseMap.put("msg","no se encontró la distribuidora con id: " + id);
             }
         } catch (NumberFormatException e){
             responseMap.put("estado","error");
