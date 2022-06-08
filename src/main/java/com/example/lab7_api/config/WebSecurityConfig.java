@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/juegos", "/juegos/**").authenticated()
+                .antMatchers("/distribuidoras","/distribuidoras/**").authenticated()
                 .anyRequest().permitAll();
 
         http.httpBasic();
