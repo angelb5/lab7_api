@@ -28,15 +28,15 @@ public class Juego implements Serializable {
     @Column(name = "image", length = 400)
     private String image;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "idgenero")
     private Genero genero;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "idplataforma")
     private Plataforma plataforma;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "iddistribuidora")
     private Distribuidora distribuidora;
 

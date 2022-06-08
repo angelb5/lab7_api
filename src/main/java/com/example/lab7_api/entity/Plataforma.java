@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Plataforma implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idplataforma", nullable = false)
+    @Column(name = "idplataforma")
     private Integer id;
 
     @Column(name = "nombre", length = 50)
