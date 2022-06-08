@@ -73,7 +73,7 @@ public class DistribuidoraController {
         return ResponseEntity.badRequest().body(responseMap);
     }
 
-    @PutMapping(value = "/distribuidora")
+    @PutMapping(value = "/distribuidoras")
     public ResponseEntity<HashMap<String,Object>> actualizarDistribuidora(
             @RequestBody Distribuidora distribuidora
     ){
@@ -96,7 +96,7 @@ public class DistribuidoraController {
         }
     }
 
-    @DeleteMapping(value = "/distribuidora/{id}")
+    @DeleteMapping(value = "/distribuidoras/{id}")
     public ResponseEntity<HashMap<String,Object>> borrarDistribuidora(
             @PathVariable("id") String idStr
     ){
