@@ -21,12 +21,12 @@ public class DistribuidoraController {
     @Autowired
     DistribuidoraRepository distribuidoraRepository;
 
-    @GetMapping(value = "/distribuidoras", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @GetMapping(value = "/distribuidoras")
     public List<Distribuidora> listarDistribuidoras() {
         return distribuidoraRepository.findAll();
     }
 
-    @GetMapping(value = "/distribuidoras/{id}", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @GetMapping(value = "/distribuidoras/{id}")
     public ResponseEntity<HashMap<String,Object>> obtenerDistribuidoraPorId(@PathVariable("id") String idStr){
         HashMap<String,Object> responseJson = new HashMap<>();
         try{
@@ -47,7 +47,7 @@ public class DistribuidoraController {
         return ResponseEntity.badRequest().body(responseJson);
     }
 
-    @PostMapping(value = "/distribuidoras", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @PostMapping(value = "/distribuidoras")
     public ResponseEntity<HashMap<String,Object>> guardarDistribuidora(
             @RequestBody Distribuidora distribuidora,
             @RequestParam(value="fetchId", required = false) boolean fetchId
@@ -73,7 +73,7 @@ public class DistribuidoraController {
         return ResponseEntity.badRequest().body(responseMap);
     }
 
-    @PutMapping(value = "/distribuidora", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @PutMapping(value = "/distribuidora")
     public ResponseEntity<HashMap<String,Object>> actualizarDistribuidora(
             @RequestBody Distribuidora distribuidora
     ){

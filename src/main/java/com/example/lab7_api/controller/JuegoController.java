@@ -29,12 +29,12 @@ public class JuegoController {
         return juegoRepository.findAll();
     }
 
-    @GetMapping(value = "/juegos/precio", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @GetMapping(value = "/juegos/precio")
     public List<Juego> listarJuegosPrecio() {
         return juegoRepository.findAll();
     }
 
-    @GetMapping(value = "/juegos/usuario/{id}", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @GetMapping(value = "/juegos/usuario/{id}")
     public List<JuegosUserDto> listarJuegosUser(@PathVariable("id") String idStr){
         int id;
         try {
@@ -45,7 +45,7 @@ public class JuegoController {
         return juegoRepository.obtenerJuegosPorUser(id);
     }
 
-    @GetMapping(value = "/juegos/nocomprados/{id}", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @GetMapping(value = "/juegos/nocomprados/{id}")
     public List<Juego> listarJuegosNoComprados(@PathVariable("id") String idStr){
         int id;
         try {
@@ -56,7 +56,7 @@ public class JuegoController {
         return juegoRepository.obtenerJuegosNoComprados(id);
     }
 
-    @GetMapping(value = "/juegos/{id}", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @GetMapping(value = "/juegos/{id}")
     public ResponseEntity<HashMap<String,Object>> obtenerJuegoPorId(@PathVariable("id") String idStr){
         HashMap<String,Object> responseJson = new HashMap<>();
         try{
@@ -77,7 +77,7 @@ public class JuegoController {
         return ResponseEntity.badRequest().body(responseJson);
     }
 
-    @PostMapping(value = "/juegos", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @PostMapping(value = "/juegos")
     public ResponseEntity<HashMap<String,Object>> guardarJuego(
             @RequestBody Juego juego,
             @RequestParam(value="fetchId", required = false) boolean fetchId
@@ -101,7 +101,7 @@ public class JuegoController {
         return ResponseEntity.badRequest().body(responseMap);
     }
 
-    @PutMapping(value = "/juegos", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=ufg-8")
+    @PutMapping(value = "/juegos")
     public ResponseEntity<HashMap<String,Object>> actualizarJuego(
             @RequestBody Juego juego
     ){
