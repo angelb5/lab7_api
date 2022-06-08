@@ -28,20 +28,20 @@ public class Juego implements Serializable {
     @Column(name = "image", length = 400)
     private String image;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idgenero")
-    private Genero idgenero;
+    private Genero genero;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idplataforma")
-    private Plataforma idplataforma;
+    private Plataforma plataforma;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "ideditora")
-    private Editora ideditora;
+    private Editora editora;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "iddistribuidora")
-    private Distribuidora iddistribuidora;
+    private Distribuidora distribuidora;
 
 }
